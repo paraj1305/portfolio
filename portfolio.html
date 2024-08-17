@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paraj Bhatasa's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        html {
+    scroll-behavior: smooth;
+}
+
+
+        /* Your custom CSS here */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f5f5f5;
+    background-image: url('back2.jpg');
+    background-size: cover; /* Adjust this as needed */
+    background-position: center; /* Adjust this as needed */
+    background-repeat: no-repeat; /* Adjust this as needed */
+    animation: fadeIn 1s ease-in;
+}
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            /* background: linear-gradient(90deg, #bbbbbb, #555); */
+            color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            animation: slideInDown 0.5s ease-out;
+            background-color: rgba(55, 55, 55, 0.794);
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s, border-bottom 0.3s, transform 0.3s;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid transparent ;
+        }
+
+        nav ul li a:hover {
+            color: #f0f0f0;
+           
+            transform: scale(1.1);
+        }
+
+        .home {
+            height: 100vh;
+            background: url('back.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .home-content {
+            max-width: 600px;
+            animation: fadeInUp 2s forwards;
+            margin-bottom: 18rem;
+        }
+
+        .home-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .home-content p {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .home-content .btn {
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            margin: 0.5rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .home-content .btn:hover {
+            background-color: #333;
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            background: linear-gradient(135deg, #ebebeb, #848484);
+            border: 1px solid #ffffff;
+            border-radius: 8px;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+
+
+        
+        section:before {
+    content: attr(data-title);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f0707;
+    position: absolute;
+    top: -1.5rem;
+    left: 2rem;
+    background: #f4f4f4; /* Wood color */
+    padding: 0 0.5rem;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+        footer {
+          
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .contact-info i {
+            color: #1e90ff;
+            margin-right: 0.5rem;
+        }
+
+        .contact-info a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            nav h1 {
+                font-size: 1.25rem;
+            }
+
+            footer {
+                font-size: 0.875rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 2rem 0.5rem;
+            }
+
+            section:before {
+                font-size: 1.25rem;
+                top: -1rem;
+                left: 1rem;
+            }
+
+            nav h1 {
+                font-size: 1rem;
+            }
+
+            nav ul li a {
+                font-size: 0.875rem;
+            }
+
+            footer {
+                font-size: 0.75rem;
+            }
+        }
+
+        .profile-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .profile-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-image img {
+            max-width: 250px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-text {
+            flex: 2;
+            padding-left: 2rem;
+        }
+
+
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 300px;
+            height: 150px;
+            margin: 2rem;
+            
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item img {
+            max-width: 80px;
+            max-height: 80px;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-item p {
+            margin: 0;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        #education .education-card {
+    background: linear-gradient(to bottom right, #585858, #000000);
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+
+
+    #education .education-card h4 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+
+    #education .education-card i {
+        margin-right: 0.5rem;
+        color: #ffd700;
+    }
+
+    #education .education-card p {
+        margin: 0.5rem 0;
+    }
+
+          /* Contact Section Styles */
+    
+          #contact .card i {
+            margin-right: 0.5rem;
+            color: #000000;
+        }
+
+        #contact .card a {
+            color: #000000;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        #contact .card a:hover {
+            color: #362f2f;
+        }
+    
+
+        .project-item:hover {
+        transform: translateY(-10px);
+    }
+    .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    margin: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #333;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* expirnce */
+.experience-journey {
+    padding: 20px;
+    
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+   
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: #e9ecef;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-left: 50px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px 0;
+    margin-left: 70px; /* Adjusted margin to align with the timeline */
+}
+
+.timeline-date {
+    position: absolute;
+    left: -100px;
+    top: 0;
+    width: 60px;
+    text-align: right;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #007bff;
+    border: 4px solid #fff;
+    top: 10px;
+   
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.timeline-content {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    margin-left: 40px; /* Aligns the content properly to the right */
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+}
+
+.timeline-content ul {
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+
+.timeline-content ul li {
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+.timeline-item {
+    position: relative;
+    padding: 20px 0;
+    margin-left: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.timeline-content {
+    width: 90%;
+}
+
+
+.toggle-button {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px; /* Larger button */
+    cursor: pointer;
+    transition: transform 0.8s ease; /* Smooth rotation */
+    padding: 5px;
+  
+    display: flex;
+    align-items: center;
+}
+
+.toggle-button.collapsed {
+    transform: rotate(90deg); /* Rotate arrow when expanded */
+}
+
+.experience-list {
+    margin-top: 10px;
+    
+}
+
+
+
+
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1>Paraj Bhatasana</h1>
+                <ul>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="home">
+        <div class="home-content" data-aos="fade-up">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Hi, I'm Paraj Bhatasana, a Python Django Developer.</p>
+            <a href="#profile" class="btn btn-primary">Portfolio</a>
+            <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+    </div>
+
+    <section class="section" id="profile" data-title="Profile" data-aos="fade-up">
+        <div class="profile-content">
+            <div class="profile-image" data-aos="flip-left">
+                <img src="photo.jpg" alt="Profile Picture">
+            </div>
+            <div class="profile-text" data-aos="fadeInUp">
+                <p>Hello! I'm Paraj Bhatasana, a passionate Python Django developer with a strong interest in front-end
+                    development. I have a Bachelor's degree in Computer Applications and experience working on various
+                    projects involving Django, React.js, and the MEAN stack.</p>
+                <p>I enjoy creating innovative solutions and have a keen eye for UI/UX design. Let's work together to
+                    bring your ideas to life!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" data-title="Education">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4" data-aos="flip-left" style="transition: transform 1s ease;">
+                    <div class="education-card" >
+                        <h4>Bachelor's Degree</h4>
+                        <p><i class="fas fa-university"></i> Computer Applications from GLS University</p>
+                        <p><i class="fas fa-calendar-alt"></i> Graduation Year: 2023</p>
+                        <p><i class="fas fa-star"></i> CGPA: 89</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-left" style="transition: transform 2s ease;">
+                    <div class="education-card">
+                        <h4>Master's Degree (Ongoing)</h4>
+                        <p><i class="fas fa-university"></i> MCA at Swaminarayan University, Gandhinagar</p>
+                        <p><i class="fas fa-calendar-alt"></i> Expected Graduation Year: 2025</p>
+                        <p>
+                           
+                            ...
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="flip-left" style="transition: transform 3s ease;">
+                    <div class="education-card">
+                        <h4>12th GBSE</h4>
+                        <p>
+                            <i class="fas fa-book"></i> 
+                            Commerce,GBSE
+                        </p>
+                        <p>
+                            <i class="fas fa-calendar-alt"></i> 
+                            Passing Year: 2018
+                        </p>
+                        <p>
+                            <i class="fas fa-percent"></i> 
+                            Passed with: 98%
+                        </p>
+                        <p>
+                           
+                            ...
+                        </p>
+                        
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+   
+        <section id="skills" data-title="Skills" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="skill-item" data-aos="flip-left">
+                        <img src="python.png" alt="Python">
+                        <p>Python</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-item" data-aos="flip-left">
+                        <img src="django.png" alt="Django">
+                        <p>Django</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-item" data-aos="flip-left">
+                        <img src="bootstrap.png" alt="Bootstrap">
+                        <p>Bootstrap</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-item" data-aos="flip-left">
+                        <img src="figma.png" alt="Figma">
+                        <p>Figma</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-item" data-aos="flip-left">
+                        <img src="mongodb.png" alt="MongoDB">
+                        <p>MongoDB</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="skill-item" data-aos="flip-left">
+                        <img src="mysql.png" alt="MySQL">
+                        <p>MySQL</p>
+                    </div>
+                </div>
+          
+        </section>
+
+        <section class="experience-journey">
+            <h2>My Journey of Experience</h2>
+            
+            <div class="timeline" data-aos="fade-right" >
+                <div class="timeline-item">
+                    <div class="timeline-date">
+                        <p>May 2024</p>
+                    </div>
+                    <div class="timeline-content row" data-aos="fade-right" >
+                        <!-- Left side content -->
+                        <div class="col-md-10" >
+                            <h3>Python Summer Internship</h3>
+                            <p><strong>Company:</strong> BROADERAI IT SOLUTION LLP</p>
+                            <p><strong>Duration:</strong> 01-May-2024 to 31-May-2024</p>
+                            <p><strong>Role:</strong> Intern</p>
+                        </div>
+                        
+                        <!-- Right side arrow button -->
+                        <div class="col-md-2 d-flex justify-content-end align-items-center">
+                            <button class="toggle-button" onclick="toggleList(this)" >
+                                <i class="fas fa-angle-double-right fa-3x"></i>
+                            </button>
+                        </div>
+
+                       
+                        
+                    
+                        <!-- Experience list (hidden initially) -->
+                        <div class="col-12">
+                            <ul class="experience-list" style="display: none;">
+                                <li>Successfully completed a one-month Python Summer Internship.</li>
+                                <li>Developed a deep understanding of complex Python programming concepts.</li>
+                                <li>Demonstrated innovative problem-solving skills and strong teamwork.</li>
+                                <li>Contributed significantly to the success of the internship program.</li>
+                                <li>Received commendation for dedication, enthusiasm, and continuous learning.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="timeline-item" >
+                    <div class="timeline-date">
+                        <p>june 2024 - Present</p>
+                    </div>
+                    <div class="timeline-content row" data-aos="fade-right">
+                        <div class="col-md-10">
+                        <h3>Software Developer (Ongoing)</h3>
+                        <p><strong>Company:</strong> Coder Scotch Technologies</p>
+                        <p><strong>Location:</strong> Ahmedabad, India</p>
+                        <p><strong>Position:</strong> Software Developer</p>
+                        <p><strong>Start Date:</strong> 01-May-2024</p>
+                    </div>
+                    <div class="col-md-2 d-flex justify-content-end align-items-center">
+                        <button class="toggle-button" onclick="toggleList(this)" >
+                            <i class="fas fa-angle-double-right fa-3x"></i> 
+
+                        </button>
+                    </div>
+                <div class="col-12">
+                        <ul class="experience-list" style="display: none;">
+                            <li>Currently working as a Software Developer with a gross CTC of 15,000 INR per month.</li>
+                            <li>Collaborating with the team to deliver high-quality results that exceed expectations.</li>
+                            <li>Committed to personal accountability in all services, actions, and advice.</li>
+                            <li>Flexible working hours with a focus on completing 9 hours of work including a lunch break.</li>
+                            <li>Undergoing a 3-month probation period with opportunities for professional development.</li>
+                            <li>Entitled to 18 paid leaves annually, including casual and sick leaves post-probation.</li>
+                        </ul>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <section id="projects" data-title="Projects" class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <!-- Project Item 1 -->
+                    <div class="col-md-12 mb-4 " data-aos="fade-right" >
+                        <div class="project-item bg-white p-4 rounded shadow-sm" style="transition: transform 1s ease;">
+                            <h3 class="text-primary">CoderScotch CRM</h3>
+                            <p>CoderScotch CRM is a comprehensive Customer Relationship Management (CRM) system designed to streamline business operations and enhance client interactions. Built using Django and MySQL, this CRM software integrates various business processes into a single platform, providing tools for task management, project management, invoicing, leave management, and salary slip generation.</p>
+                        </div>
+                    </div>
+                    <!-- Project Item 2 -->
+                    <div class="col-md-12 mb-4" data-aos="fade-right">
+                        <div class="project-item bg-white p-4 rounded shadow-sm" style="transition: transform 3s ease;">
+                            <h3 class="text-primary">Stock Analysis Dashboard</h3>
+                            <p>The Stock Analysis Dashboard is a dynamic web application designed for analyzing and tracking stock market indices and individual stock performance. Built using Django as the backend framework, the application integrates real-time data fetching, interactive data visualization, and a user-friendly interface to deliver comprehensive stock market insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <section id="contact" data-title="Contact" >
+        <div class="row" data-aos="fade-right">
+            <div class="col-md-6 ">
+                <div class="card">
+                    <p class="m-3"><i class="fas fa-envelope"></i> <a href="mailto:paraj1305@gmail.com">bhatasanaparaj@gmail.com</a></p>
+                    <p class="m-3"><i class="fas fa-phone"></i> <a href="tel:+917202920152">+91 7202920152</a></p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <p class="m-3"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/paraj1305">paraj1305</a></p>
+                    <p class="m-3"><i class="fab fa-github"></i> <a href="https://github.com/paraj1305">paraj1305</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 Paraj Bhatasana. All rights reserved.</p>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false,
+        });
+
+        function toggleList(button) {
+    var experienceList = button.parentElement.parentElement.querySelector('.experience-list');
+    
+    if (experienceList.style.display === "none") {
+        experienceList.style.display = "block";
+        button.classList.add('collapsed'); // Rotate arrow down
+    } else {
+        experienceList.style.display = "none";
+        button.classList.remove('collapsed'); // Rotate arrow up
+    }
+
+    
+}
+
+    </script>
+    
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
