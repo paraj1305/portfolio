@@ -17,6 +17,7 @@
 }
 
 
+
         /* Your custom CSS here */
         body {
             font-family: 'Roboto', Arial, sans-serif;
@@ -107,6 +108,43 @@
            
             transform: scale(1.1);
         }
+
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        background-color: #333;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
 
         .home {
             height: 100vh;
@@ -224,80 +262,60 @@
             text-decoration: underline;
         }
 
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            nav .container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+      
 
-            nav ul {
-                flex-direction: column;
-                align-items: flex-start;
-                width: 100%;
-            }
-
-            nav ul li {
-                margin: 0.5rem 0;
-            }
-
-            nav h1 {
-                font-size: 1.25rem;
-            }
-
-            footer {
-                font-size: 0.875rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            section {
-                padding: 2rem 0.5rem;
-            }
-
-            section:before {
-                font-size: 1.25rem;
-                top: -1rem;
-                left: 1rem;
-            }
-
-            nav h1 {
-                font-size: 1rem;
-            }
-
-            nav ul li a {
-                font-size: 0.875rem;
-            }
-
-            footer {
-                font-size: 0.75rem;
-            }
-        }
-
-        .profile-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .profile-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .profile-image img {
-            max-width: 250px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
+  
 
         .profile-text {
             flex: 2;
             padding-left: 2rem;
         }
 
+        .section {
+    padding: 20px;
+}
 
+.profile-content {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: center; /* Center items */
+}
+
+.profile-image {
+    margin-bottom: 15px; /* Space between image and text */
+    flex: 1;
+            text-align: center;
+    
+}
+
+.profile-image img {
+   
+    height: auto; /* Maintain aspect ratio */
+    max-width: 250px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-text {
+    text-align: center; /* Center text for better readability */
+    padding: 0 10px; /* Add some padding for smaller screens */
+    flex: 2;
+    padding-left: 2rem;
+}
+
+@media (min-width: 768px) {
+    .profile-content {
+        flex-direction: row; /* Side by side on larger screens */
+        justify-content: space-around; /* Space between items */
+    }
+
+    .profile-text {
+        text-align: left; /* Left align text on larger screens */
+        padding: 0; /* Remove padding */
+    }
+}
+
+        
         .skill-item {
             display: flex;
             flex-direction: column;
@@ -320,6 +338,7 @@
             max-height: 80px;
             margin-bottom: 0.5rem;
         }
+        
 
         .skill-item p {
             margin: 0;
@@ -330,6 +349,7 @@
         .skill-item:hover {
             transform: translateY(-5px);
         }
+      
 
         #education .education-card {
     background: linear-gradient(to bottom right, #585858, #000000);
@@ -341,7 +361,9 @@
     text-align: center;
 }
 
-
+    .education-card:hover {
+        transform: translateY(-10px);
+    }
 
     #education .education-card h4 {
         margin-top: 0;
@@ -522,7 +544,8 @@
         <nav>
             <div class="container">
                 <h1>Paraj Bhatasana</h1>
-                <ul>
+                <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+                <ul class="nav-list">
                     <li><a href="#profile">Profile</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -533,10 +556,13 @@
         </nav>
     </header>
 
+   
+
+
     <div class="home">
         <div class="home-content" data-aos="fade-up">
             <h1>Welcome to My Portfolio</h1>
-            <p>Hi, I'm Paraj Bhatasana, a Python Django Developer.</p>
+            <p>Hi, I'm Paraj Bhatasana, a Python-Django Developer.</p>
             <a href="#profile" class="btn btn-primary">Portfolio</a>
             <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
@@ -548,11 +574,8 @@
                 <img src="imgs/Photo.jpg" alt="Profile Picture">
             </div>
             <div class="profile-text" data-aos="fadeInUp">
-                <p>Hello! I'm Paraj Bhatasana, a passionate Python Django developer with a strong interest in front-end
-                    development. I have a Bachelor's degree in Computer Applications and experience working on various
-                    projects involving Django, React.js, and the MEAN stack.</p>
-                <p>I enjoy creating innovative solutions and have a keen eye for UI/UX design. Let's work together to
-                    bring your ideas to life!</p>
+                <p>Hello! I'm Paraj Bhatasana, I hold a Bachelor’s degree from GLS University and have gained valuable hands-on experience through a 4-month internship. Currently, I work at Coderscotch Technologies, where I focus on developing robust web applications and creating user-friendly interfaces. My passion lies in leveraging technology to solve real-world problems, and I thrive in collaborative environments.</p>
+                <p>I am eager to expand my skills in utilizing AI to work more efficiently and effectively. I am confident in my ability to quickly adapt to new Python frameworks and technologies within a 3-5 day learning period. I specialize in integrating AI solutions into development projects and am committed to continuous learning in the dynamic field of web development, finding innovative ways to leverage AI to enhance my work.</p>
             </div>
         </div>
     </section>
@@ -650,10 +673,41 @@
           
         </section>
 
-        <section class="experience-journey">
-            <h2>My Journey of Experience</h2>
+        <section class="experience-journey" id="My Journey of Experience" data-title="My Journey of Experience" data-aos="fade-up">
+        
+          
             
             <div class="timeline" data-aos="fade-right" >
+                <div class="timeline-item" >
+                    <div class="timeline-date">
+                        <p>April 2024 - Present</p>
+                    </div>
+                    <div class="timeline-content row" data-aos="fade-right">
+                        <div class="col-md-10">
+                        <h3>Software Developer (Ongoing)</h3>
+                        <p><strong>Company:</strong> Coder Scotch Technologies</p>
+                        <p><strong>Location:</strong> Ahmedabad, India</p>
+                        <p><strong>Position:</strong> Python-Django Developer</p>
+                        <p><strong>Start Date:</strong> 01 April 2024</p>
+                    </div>
+                    <div class="col-md-2 d-flex justify-content-end align-items-center">
+                        <button class="toggle-button" onclick="toggleList(this)" >
+                            <i class="fas fa-angle-double-right fa-3x"></i> 
+
+                        </button>
+                    </div>
+                <div class="col-12">
+                        <ul class="experience-list" style="display: none;">
+                            <li>Completed a 4-month internship at Coderscotch Technologies.</li>
+                            <li>Currently working as a Python Django Developer</li>
+                            <li>Collaborating with the team to deliver high-quality results that exceed expectations.</li>
+                            <li>Committed to personal accountability in all services, actions, and advice.</li>
+                            <li>Enhanced technical abilities and problem-solving skills through hands-on experience.</li>
+                            
+                        </ul>
+                </div>
+                    </div>
+                </div>
                 <div class="timeline-item">
                     <div class="timeline-date">
                         <p>May 2024</p>
@@ -692,38 +746,10 @@
                     
                 </div>
                 
-                <div class="timeline-item" >
-                    <div class="timeline-date">
-                        <p>june 2024 - Present</p>
-                    </div>
-                    <div class="timeline-content row" data-aos="fade-right">
-                        <div class="col-md-10">
-                        <h3>Software Developer (Ongoing)</h3>
-                        <p><strong>Company:</strong> Coder Scotch Technologies</p>
-                        <p><strong>Location:</strong> Ahmedabad, India</p>
-                        <p><strong>Position:</strong> Software Developer</p>
-                        <p><strong>Start Date:</strong> 01-May-2024</p>
-                    </div>
-                    <div class="col-md-2 d-flex justify-content-end align-items-center">
-                        <button class="toggle-button" onclick="toggleList(this)" >
-                            <i class="fas fa-angle-double-right fa-3x"></i> 
-
-                        </button>
-                    </div>
-                <div class="col-12">
-                        <ul class="experience-list" style="display: none;">
-                            <li>Currently working as a Software Developer with a gross CTC of 15,000 INR per month.</li>
-                            <li>Collaborating with the team to deliver high-quality results that exceed expectations.</li>
-                            <li>Committed to personal accountability in all services, actions, and advice.</li>
-                            <li>Flexible working hours with a focus on completing 9 hours of work including a lunch break.</li>
-                            <li>Undergoing a 3-month probation period with opportunities for professional development.</li>
-                            <li>Entitled to 18 paid leaves annually, including casual and sick leaves post-probation.</li>
-                        </ul>
-                </div>
-                    </div>
-                </div>
+         
             </div>
         </section>
+        
         
         
 
@@ -734,11 +760,25 @@
                     <div class="col-md-12 mb-4 " data-aos="fade-right" >
                         <div class="project-item bg-white p-4 rounded shadow-sm" style="transition: transform 1s ease;">
                             <h3 class="text-primary">CoderScotch CRM</h3>
-                            <p>CoderScotch CRM is a comprehensive Customer Relationship Management (CRM) system designed to streamline business operations and enhance client interactions. Built using Django and MySQL, this CRM software integrates various business processes into a single platform, providing tools for task management, project management, invoicing, leave management, and salary slip generation.</p>
+                            <p>CoderScotch CRM is a comprehensive customer relationship management system built with Django, designed to streamline business operations through features such as task management, project tracking, employee and leave management, invoice generation, and salary slip management. It effectively handles client interactions, monitors revenues and expenses, and generates detailed profit and loss reports. Additionally, the CRM offers dynamic charting, advanced search filters, and the capability to generate PDFs for invoices and salary slips, enhancing usability and reporting efficiency.
+
+                            </p>
                         </div>
                     </div>
                     <!-- Project Item 2 -->
                     <div class="col-md-12 mb-4" data-aos="fade-right">
+                        <div class="project-item bg-white p-4 rounded shadow-sm" style="transition: transform 3s ease;">
+                            <h3 class="text-primary">SURVEY API</h3>
+                            <p>This project involves building a comprehensive API for managing user
+                                authentication, profiles, surveys, and withdrawal processes. It supports user
+                                sign-up, login, and profile management, along with survey creation and
+                                responses. The API integrates with Stripe for payments and enables email
+                                notifications and withdrawals for respondents. It uses MongoDB for data
+                                storage</p>
+                        </div>
+                    </div>
+                     <!-- Project Item 3 -->
+                     <div class="col-md-12 mb-4" data-aos="fade-right">
                         <div class="project-item bg-white p-4 rounded shadow-sm" style="transition: transform 3s ease;">
                             <h3 class="text-primary">Stock Analysis Dashboard</h3>
                             <p>The Stock Analysis Dashboard is a dynamic web application designed for analyzing and tracking stock market indices and individual stock performance. Built using Django as the backend framework, the application integrates real-time data fetching, interactive data visualization, and a user-friendly interface to deliver comprehensive stock market insights.</p>
